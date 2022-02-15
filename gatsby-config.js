@@ -5,6 +5,46 @@
  */
 
 module.exports = {
-  /* Your site config here */
-  plugins: [],
+  siteMetadata: {
+    title: `Multiple Themes`,
+    description: `A tutorial for building a Gatsby site using multiple themes.`,
+    author: `Ellie`,
+    menuLinks: [
+      {
+        name: `Blog`,
+        url: `/`,
+      },
+      {
+        name: `Notes`,
+        url: `/notes`,
+      },
+    ],
+    social: [
+      {
+        name: `twitter`,
+        url: `https://twitter.com/gatsbyjs`,
+      },
+      {
+        name: `github`,
+        url: `https://github.com/gatsbyjs`,
+      },
+    ],
+  },
+  plugins: [
+    {
+      resolve: `gatsby-theme-blog`,
+      options: {
+        // basePath defaults to `/`
+        basePath: `/`,
+      },
+    },
+    {
+      resolve: `gatsby-theme-notes`,
+      options: {
+        // basePath defaults to `/`
+        basePath: `/notes`,
+      },
+    },
+    `@pauliescanlon/gatsby-mdx-embed`,
+  ],
 }
